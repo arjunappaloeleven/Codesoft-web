@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Store Landing Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .box {
+            flex: 1;
+            text-align: center;
+            padding: 2em;
+            margin: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        #box1 {
+            background-color: #ffcc00;
+        }
+
+        #box2 {
+            background-color: #66ccff;
+        }
+
+        #box3 {
+            background-color: #99ff99;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1em 2em;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dynamic-content {
+            margin-top: 2em;
+            text-align: center;
+        }
+
+        select {
+            padding: 0.5em;
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Exclusive Watches</h1>
+    </header>
+
+    <section>
+        <div id="box1" class="box">
+            <h2>Quality Craftsmanship</h2>
+            <p>Our watches are meticulously crafted to perfection.</p>
+        </div>
+        <div id="box2" class="box">
+            <h2>Timeless Elegance</h2>
+            <p>Experience the beauty of our timeless watch designs.</p>
+        </div>
+        <div id="box3" class="box">
+            <h2>Shop the Collection</h2>
+            <p>Explore our exclusive collection and find your perfect timepiece.</p>
+            <a href="#shop" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <div class="dynamic-content">
+        <h2>Explore Watches by Category and Brand</h2>
+        <label for="categories">Select Category:</label>
+        <select id="categories" onchange="updateDynamicContent()">
+            <option value="all">All Categories</option>
+            <option value="sports">Sports</option>
+            <option value="luxury">Luxury</option>
+            <option value="casual">Casual</option>
+        </select>
+
+        <label for="brands">Select Brand:</label>
+        <select id="brands" onchange="updateDynamicContent()">
+            <option value="all">All Brands</option>
+            <option value="rolex">Rolex</option>
+            <option value="tag">TAG Heuer</option>
+            <option value="citizen">Citizen</option>
+        </select>
+
+        <div id="dynamic-info">
+            <!-- Dynamic content will be displayed here -->
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Exclusive Watches
+    </footer>
+
+    <script>
+        function updateDynamicContent() {
+            var category = document.getElementById("categories").value;
+            var brand = document.getElementById("brands").value;
+
+            var dynamicInfoDiv = document.getElementById("dynamic-info");
+            dynamicInfoDiv.innerHTML = ""; // Clear previous content
+
+            var dynamicContent = document.createElement("div");
+            dynamicContent.innerHTML = `<p>Showing watches for category: ${category} and brand: ${brand}</p>`;
+
+            dynamicInfoDiv.appendChild(dynamicContent);
+        }
+    </script>
+</body>
+</html>
